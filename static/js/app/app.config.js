@@ -24,13 +24,6 @@ angular.module('googleMaps').
       controller: 'detailController',
     })
 
-    .state('register', {
-      url: '/register',
-      templateUrl: static('angular_templates/register.html'),
-      controller: "RegisterController",
-      controllerAs: 'RgCtrl'
-    })
-
     .state('routes', {
       url: '/routes',
       templateUrl: static('angular_templates/routes.html'),
@@ -43,6 +36,13 @@ angular.module('googleMaps').
       templateUrl: static('angular_templates/login.html'),
       controller: "LoginController",
       controllerAs: 'LgCtrl'
+    })
+
+    .state('register', {
+      url: '/register',
+      templateUrl: static('angular_templates/register.html'),
+      controller: "RegisterController",
+      controllerAs: 'RgCtrl'
     })
 
     .state('logout', {
