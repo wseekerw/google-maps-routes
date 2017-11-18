@@ -37,7 +37,7 @@ app.controller("detailController",function($scope, $stateParams, $http, $cookies
         var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
         // http request or call for distance and travel time
-        var promise = $http.get(requestUrl);
+        var promise = $http.jsonp(/*proxyUrl + */requestUrl);
 
         promise.then(function(response){
             //console.log(response);
