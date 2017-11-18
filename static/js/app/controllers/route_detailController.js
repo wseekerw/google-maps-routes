@@ -40,7 +40,7 @@ app.controller("detailController",function($scope, $stateParams, $http, $cookies
         var promise = $http.get(requestUrl);
 
         promise.then(function(response){
-            console.log(response);
+            //console.log(response);
             if(response.data.rows[0].elements[0].status==="ZERO_RESULTS") {
 
                console.log('Something went wrong')
@@ -59,7 +59,7 @@ app.controller("detailController",function($scope, $stateParams, $http, $cookies
        });
 
        promise.catch(function(err){
-           console.log(err);
+           //console.log(err);
        })
 
        // variable setting for Directions service
@@ -105,14 +105,14 @@ app.controller("detailController",function($scope, $stateParams, $http, $cookies
             directionsDisplay.setDirections(response);
             directionsDisplay.setMap(map);
           } else {
-            console.log('Error calculating route');
+            //console.log('Error calculating route');
           }
         });
 
     })
 
     requestDetail.catch(function(err){
-      console.log(err);
+      //console.log(err);
     })
 
 

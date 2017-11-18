@@ -15,6 +15,6 @@ app.controller('LogoutController', ['$cookies','$scope','$location', function($c
         $cookies.remove('username')
     }
     $location.path('/login')
-    console.log('Ako je undefined onda nema tokena i Logout je uspeo ->', $cookies.get("token"))
+    //console.log('Ako je undefined onda nema tokena i Logout je uspeo ->', $cookies.get("token"))
 
 }]);

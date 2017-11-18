@@ -36,7 +36,7 @@ app.controller("routesController",['$http', '$cookies','$scope', function($http,
 
     getRequest.then(function(response){
        $scope.map_objects = response.data;
-       console.log(response);
+       //console.log(response);
 
        // Delete function inside a get request response
        $scope.delete = function(map_object) {
@@ -51,15 +51,15 @@ app.controller("routesController",['$http', '$cookies','$scope', function($http,
          })
 
        deleteRoutePromise.then(function(response){
-          console.log(response);
-          console.log($scope.map_objects.indexOf(map_object));
+          //console.log(response);
+          //console.log($scope.map_objects.indexOf(map_object));
           // Line below deletes the map_object from the $scope object so it gets deleted in view also
           $scope.map_objects.splice($scope.map_objects.indexOf(map_object), 1);
 
        });
 
        deleteRoutePromise.catch(function(errResponse){
-          console.log(errResponse);
+          //console.log(errResponse);
        })
 
        }
@@ -67,7 +67,7 @@ app.controller("routesController",['$http', '$cookies','$scope', function($http,
     });
 
     getRequest.catch(function(err){
-        console.log(err);
+        //console.log(err);
     });
 
   }
@@ -151,7 +151,7 @@ app.controller("routesController",['$http', '$cookies','$scope', function($http,
         })
 
       } else {
-        console.log("No token")
+        //console.log("No token")
       }
 
 

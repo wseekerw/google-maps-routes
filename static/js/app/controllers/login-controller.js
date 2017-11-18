@@ -28,7 +28,7 @@ app.controller("LoginController", function($scope, $cookies, $http, $location, $
             $cookies.put("token", response.data.token)
             $cookies.put("username", response.data.username)
             $location.path("/routes")
-            console.log($cookies.get('username'), $cookies.get('token'))
+            //console.log($cookies.get('username'), $cookies.get('token'))
 
         })
 

@@ -26,7 +26,7 @@ app.controller('RegisterController', function($http, $scope){
         registerPromise.then(function(response){
             self.statusText = response.statusText
             //console.log(self.statusText)
-            console.log(response)
+            //console.log(response)
 
             self.regUsername = response.data.username
 
@@ -57,11 +57,11 @@ app.controller('RegisterController', function($http, $scope){
         });
 
         registerPromise.catch(function(errResponse){
-            console.log(errResponse)
+            //console.log(errResponse)
             self.usernameError = errResponse.data.username
             self.passwordError = errResponse.data.password2
 
-            console.log(self.usernameError,self.emailError,self.email2Error,self.passwordError)
+            //console.log(self.usernameError,self.emailError,self.email2Error,self.passwordError)
 
 
 
