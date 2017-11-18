@@ -7,3 +7,12 @@ psycopg2==2.7.3.2
 PyJWT==1.5.3
 pytz==2017.2
 whitenoise==3.3.1
+
+olefile==0.44
+packaging==16.8
+dj-static==0.0.6
+pyparsing==2.2.0
+python-dateutil==2.6.0
+static3==0.7.0
+six==1.10.0
+django-toolbelt==0.0.1
