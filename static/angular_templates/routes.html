@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="row">
+        <div id="inputDiv" class="col-lg-6 col-md-6 col-sm-6">
+            <p id="hello">Hello,</p>
+            <p id="helloUsername">[[ RCtrl.user.username ]]</p>
+
+            <p id="routesText1">This is the routes page where you can save and manage your routes. Created routes
+            are saved directly into the database so you can access them whenever you login into an account.</p>
+            <p id="routesText2">To create a route you need to fill the starting point and the endpoint field and click on
+                "Submit Destination" button. Both
+            of those forms have an autocomplete function which helps you to accurately pinpoint the locations. Once
+            you've created a route click on it to open a map and to see the destination and travel time.</p>
+            <p id="routesText3">This site calculates the destination and travel time by car only.</p>
+            <p id="routesText4">* Be careful while entering the starting and ending destination. If you fail
+            to submit a full name of the city or town then your route won't be properly created.</p>
+
+            <form id="routesForm" name="myForm">
+
+                <input class="form-control" required autofocus type="text" ng-model="user.start" id="startvalue"  placeholder="Start destination">
+
+
+                <input class="form-control" required type="text" id="endvalue"  ng-model="user.end" placeholder="End Destination">
+
+
+                <button ng-disabled="myForm.$invalid" class="btn btn-success" type="button" ng-click="addItem(user)">Submit Destination</button>
+
+            </form>
+            <p id="routesText5" ng-if="[[ invalidDestination ]]">[[ invalidDestination ]]</p>
+            <!--<pre>user = {{user | json}}</pre>-->
+            <div class="col-lg-12 col-md-12 col-sm-12 paginacija">
+                <dir-pagination-controls></dir-pagination-controls>
+            </div>
+            <p id="yourRoutes" ng-if="map_objects.length > 0">Your routes are below:</p>
+            <div class="col-lg-12 col-md-12 col-sm-12" id="desList" dir-paginate="map_object in map_objects | itemsPerPage: 3">
+                <a ui-sref="routeDetail({id: map_object.id})">
+                    <div class="des">[[ map_object.address1 ]]<span id="dash">-</span>[[ map_object.address2 ]]</div>
+                </a>
+                <button ng-click="delete(map_object)" type="button" class="btn btn-danger">Delete Route</button>
+
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <img id="divMap" ng-src="[[ divMap ]]">
+        </div>
+
+
+
+    </div>
+</body>
+</html>

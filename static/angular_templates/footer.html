@@ -1,0 +1,56 @@
+<html>
+
+<head>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+<style>
+    #footerShape {
+        height: 150px;
+        background-color:#5f7c1a;
+        -webkit-clip-path: polygon(40% 57%, 79% 0, 100% 0, 100% 100%, 0 100%, 0 57%);
+        clip-path: polygon(40% 57%, 79% 0, 100% 0, 100% 100%, 0 100%, 0 57%);
+        -webkit-clip-path: url("#clip");
+        clip-path: url("#clip");
+
+        -webkit-box-shadow: 0px 14px 18px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 14px 18px -5px rgba(0,0,0,0.75);
+         box-shadow: 0px 14px 18px -5px rgba(0,0,0,0.75);
+         z-index: 100;
+}
+
+
+    /*points="0.4 0.57, 0.79 0, 1 0, 1 1, 0 1, 0 0.57"*/
+</style>
+</head>
+
+
+<body>
+    <div id="footerRow" class="row">
+        <div back-img="[[footerBackground1]]" id="footerShape" class="col-lg-12 col-md-12 col-sm-12"></div>
+        <div id="lastFooter" class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <br><br>
+                <p class="author">Author: <span id="spanAuthor">Lazar</span></p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <br><br><br>
+                <p class="projects">Other projects:</p>
+                <p class="projects">Art Blog: <a class="a" href="http://umetnicki-blog.herokuapp.com/">http://umetnicki-blog.herokuapp.com/</a></p>
+                <p class="projects">Artist Site: <a class="a" id="a" href="http://natasa-ivanic.herokuapp.com/">http://natasa-ivanic.herokuapp.com/</a></p>
+
+            </div>
+        </div>
+        <div id="lastFooter2" class="col-lg-12 col-md-12 col-sm-12"></div>
+    </div>
+    <svg width='0' height='0'>
+      <defs>
+         <clipPath id="clip" clipPathUnits="objectBoundingBox">
+           <polygon points="0.4 0.57, 0.79 0, 1 0, 1 1, 0 1, 0 0.57" />
+         </clipPath>
+      </defs>
+    </svg>
+
+
+
+</body>
+</html>

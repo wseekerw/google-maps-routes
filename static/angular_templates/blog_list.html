@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Blog List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style>
+        .naslov {
+            font-family: "Times New Roman";
+            text-align: center;
+            margin-top: 130px;
+        }
+        .container {
+            font-family: "Times New Roman";
+        }
+
+        .glavniList {
+            margin-top: 40px;
+            margin-bottom: 45px;
+            margin-left: 15vw;
+            margin-right: 15vw;
+            width: auto;
+            text-align: center;
+            white-space: pre-wrap;
+            background-color: #e0e0e0;
+            /*max-height: 700px;*/
+
+            border-style: solid;
+            border-width: 1px;
+            border-color: #adadad;
+            box-shadow: 8px 8px 8px #888888;
+
+            font-size: 15px;
+            /*box-shadow: 0 0 5px #888888;*/
+
+        }
+        .paginacija {
+            margin-left: 15vw;
+            margin-right: 15vw;
+            width: auto;
+            margin-bottom: 30px;
+        }
+
+        #blogNaslov {
+            font-family: "Times New Roman";
+            font-size: 25px;
+        }
+
+        #drugiCol {
+            box-shadow: 0 0 5px #888888;
+            margin-top: -50px;
+            min-height: 204px;
+        }
+
+        #treciCol {
+            box-shadow: 0 0 5px #888888;
+            margin-top: -93px;
+            min-height: 204px;
+        }
+        #drugiCol, #treciCol, #cetvrtiCol {
+            background-color: #ededed;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #adadad;
+
+        }
+
+        .img-responsive {
+            max-height: 120px;
+            margin-top: -45px;
+        }
+        .thumbnailNaslov {
+            color:#727272;
+            margin-top: -30px;
+            font-size: 17px;
+        }
+        .hr {
+            margin-top: -50px;
+            border-color: #4c4c4c;
+        }
+        #cetvrtiCol {
+            box-shadow: 0 0 5px #888888;
+            margin-top: -100px;
+        }
+        #vreme {
+            margin-top: -90px;
+            margin-bottom: 20xp;
+        }
+        #korisnik {
+            margin-top: -50px;
+            margin-bottom: 20xp;
+        }
+        .podaci {
+            font-style: italic;
+            font-weight: bold;
+            color: black;
+            font-size: 17px;
+        }
+        .dugme {
+            margin-top: -60px;
+            margin-bottom: 5px;
+            /*background-color: #848484;*/
+            /*border-color: #848484;*/
+        }
+        .dugme:hover {
+            animation-name: jello;
+            transform-origin: center;
+            background-color: #3a3a3a;
+            border-color: #3a3a3a;
+        }
+        ul.pagination > li > a {
+            background-color: #e5e5e5;
+            color: black;
+        }
+        /*ul.pagination > li.active > a {
+            background-color: #e5e5e5;
+            color: black;
+            background-color: #3a3a3a;
+            border-color: #3a3a3a;
+
+        }*/
+
+         @media (min-width: 320px) and (max-width: 959px) {
+           .naslov {
+               margin-top: 30px;
+           }
+
+       }
+
+        @media (min-width: 320px) and (max-width: 479px) {
+           .glavniList {
+               margin-left: 2px;
+               margin-right: 2px;
+               /*max-height: 1200px;*/
+           }
+           .paginacija {
+               margin-left: 2px;
+               margin-right: 2px;
+           }
+           #drugiCol {
+               margin-top: -80px;
+           }
+           #treciCol {
+               margin-top: -120px;
+           }
+           #cetvrtiCol {
+               margin-top: -160px;
+           }
+
+       }
+       @media (min-width: 480px) and (max-width: 767px) {
+           .glavniList {
+               margin-left: 1vw;
+               margin-right: 1vw;
+               /*max-height: 1050px;*/
+           }
+           .paginacija {
+               margin-left: 1vw;
+               margin-right: 1vw;
+           }
+           #drugiCol {
+               margin-top: -80px;
+           }
+           #treciCol {
+               margin-top: -120px;
+           }
+           #cetvrtiCol {
+               margin-top: -160px;
+           }
+
+       }
+       @media (min-width: 768px) and (max-width: 959px) {
+           .glavniList {
+               margin-left: 5vw;
+               margin-right: 5vw;
+               /*max-height: 1050px;*/
+           }
+           .paginacija {
+               margin-left: 5vw;
+               margin-right: 5vw;
+           }
+
+
+       }
+       @media (min-width: 1440px) {
+           .glavniList {
+               margin-left: auto;
+               margin-right: auto;
+               /*max-height: 1050px;*/
+               width: 960px;
+           }
+           .paginacija {
+               margin-left: auto;
+               margin-right: auto;
+               /*max-height: 1050px;*/
+               width: 960px;
+           }
+
+
+       }
+
+
+
+
+    </style>
+</head>
+<body>
+    <h2 class="naslov">Lista svih članaka</h2>
+    <div class="container">
+        <div class="row paginacija">
+            <dir-pagination-controls></dir-pagination-controls>
+        </div>
+
+        <div dir-paginate="blog in LCtrl.Posts | orderBy:'-timestamp'| itemsPerPage: 3" class="row glavniList">
+            <div style="height: 100%;" class="col-lg-12 col-md-12 col-sm-12">
+                 <div id="drugiCol" class="thumbnail">
+                    <p class="thumbnailNaslov">Naslov</p>
+                     <hr class="hr"/>
+                    <p id="blogNaslov">[[ blog.title ]]</p>
+                 </div>
+            </div>
+            <div style="display:none;" class="col-lg-6 col-md-6 col-sm-6">
+                <div id="treciCol" class="thumbnail">
+                    <p class="thumbnailNaslov">Slika</p>
+                    <hr class="hr"/>
+                    <img class="img-responsive" ng-src="[[ blog.image ]]" alt="Ovaj unos ne sadrži sliku">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div id="cetvrtiCol" class="thumbnail">
+                    <p class="thumbnailNaslov">Sadržaj</p>
+                    <hr class="hr"/>
+                    <p style="margin-top: -50px; color: black;">[[ blog.content|limitTo: 850 ]]<span ng-if="blog.content.length >= 850">...</span></p>
+                </div>
+            </div>
+            <div style="text-align: left; height: 40px;" class="col-lg-12 col-md-12 col-sm-12">
+                <p id="vreme">Objavljeno: <span class="podaci">[[ blog.timestamp ]] hr</span></p>
+                <p id="korisnik">Od strane korisnika: <span class="podaci">[[ blog.user.username ]]</span></p>
+                <p><a ui-sref="blog_details({id: blog.id})" class="btn btn-success dugme animated" role="button">Detaljnije o članku</a></p>
+            </div>
+
+        </div>
+
+        <!--<div class="row paginacija">
+            <dir-pagination-controls></dir-pagination-controls>
+        </div>-->
+    </div>
+
+</body>
+</html>

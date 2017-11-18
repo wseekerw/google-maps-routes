@@ -1,0 +1,168 @@
+@keyframes slideInFromLeft {
+  100% {
+    transform: translateX(0%);
+  }
+  0% {
+    transform: translateX(100%);
+  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes Appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+.navButton {
+	-moz-box-shadow: 0px 10px 14px -7px #3e7327;
+	-webkit-box-shadow: 0px 10px 14px -7px #3e7327;
+	box-shadow: 0px 10px 14px -7px #3e7327;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #72b352));
+	background:-moz-linear-gradient(top, #77b55a 5%, #72b352 100%);
+	background:-webkit-linear-gradient(top, #77b55a 5%, #72b352 100%);
+	background:-o-linear-gradient(top, #77b55a 5%, #72b352 100%);
+	background:-ms-linear-gradient(top, #77b55a 5%, #72b352 100%);
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#72b352',GradientType=0);
+	background-color:#77b55a;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 30px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+
+	/* This section calls the slideInFromLeft animation that we defined above */
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+
+
+.active {
+    color: #d32a2a;
+}
+
+.navButton {
+    -moz-box-shadow: 0px 10px 14px -7px #3e7327 !important;
+	-webkit-box-shadow: 0px 10px 14px -7px #3e7327!important;
+	box-shadow: 0px 10px 14px -7px #3e7327 !important;
+	}
+
+#navTitle {
+    animation: 1s ease-out 0s 1 slideInFromRight;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 35px;
+    font-family: 'Courgette', cursive;
+
+}
+
+#navContainer {
+     margin-top: 50px;
+ }
+.rowNav {
+    margin-top: 10px;
+}
+
+.rowNavbottom {
+    margin-bottom: 25px;
+}
+
+/*.mainrowNaw {
+    background-color:#7fc8d1;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 71% 96%, 45% 54%, 0 54%);
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 71% 96%, 45% 54%, 0 54%);
+    clip: rect(0 0, 100% 0, 100% 96%, 71% 96%, 45% 54%, 0 54%);
+
+    -webkit-box-shadow: 6px 42px 55px -26px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 42px 55px -26px rgba(0,0,0,0.75);
+    box-shadow: 6px 42px 55px -26px rgba(0,0,0,0.75);
+
+    -webkit-clip-path: url("#clipping");
+     clip-path: url("#clipping");
+}*/
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    #loginButton {
+        margin-left: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #loginButton {
+        margin-left: 20px;
+    }
+    #navTitle {
+
+        font-size: 30px;
+     }
+     #logoutButton {
+        margin-left: -60px;
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #loginButton {
+        margin-left: 65%;
+    }
+    #registerButton {
+        margin-top: -100px;
+        margin-left: 150px;
+    }
+
+    #welcomeButton {
+        margin-bottom: 7px;
+    }
+    #navTitle {
+
+        font-size: 28px;
+     }
+
+    #logoutButton {
+        margin-top: -50px;
+        margin-left: 62%;
+    }
+    #routesButton {
+        margin-bottom: 75px;
+        margin-left: 25px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+    #navTitle {
+
+        text-align: center;
+        margin-top: 50px;
+        font-size: 20px;
+
+
+    }
+}
+
+
+
+
+
+
+

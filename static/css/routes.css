@@ -1,0 +1,143 @@
+@keyframes Appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#hello {
+    margin-top: -40px;
+    font-size: 36px;
+}
+
+#helloUsername {
+    margin-left: 100px;
+    font-size: 42px;
+    color: #d6610e;
+    font-style: oblique;
+}
+
+#routesText1, #routesText2, #routesText3 {
+    font-size: 18px;
+}
+#routesText1 {
+    margin-top: 95px;
+}
+#routesText2 {
+     margin-top: 30px;
+}
+
+#routesText3 {
+    margin-top: 30px;
+}
+
+#routesForm {
+    margin-top: 40px;
+    width: 75%;
+}
+
+#startvalue, #endvalue {
+    margin-bottom: 10px;
+}
+
+#yourRoutes {
+    font-size: 22px;
+    font-style: italic;
+    margin-top: 25px;
+    color: #8e8168;
+}
+
+#desList, #routesText1, #routesText2, #routesText3, #routesText4, #routesText5, #routesForm, #hello, #yourRoutes {
+    margin-left: 20px;
+}
+
+#routesText4 {
+    color: #d6491a;
+}
+
+#routesText5 {
+    color: #e83c3c;
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+#desList {
+    margin-top: 20px;
+    border-color: #bc9214;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+
+}
+
+.des {
+   margin: 20px 20px 10px 5px;
+   font-size: 19px;
+   margin-top: 10px;
+   animation: 1s ease-out 0s 1 Appear;
+
+}
+
+div#desList > a {
+    text-decoration: none;
+
+}
+
+div#desList > a:hover {
+    color: #d66e28;
+}
+
+
+#dash {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-danger {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: -6px;
+}
+
+#divMap {
+    height: 300px;
+    width: 300px;
+    margin-top: 230px;
+    margin-left: 130px;
+}
+
+@media (min-width: 1440px) {
+    #divMap {
+        margin-left: 230px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    #divMap {
+        margin-left: 115px;
+    }
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+    #divMap {
+        margin-left: 25px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #divMap {
+        margin-left: 15%;
+        margin-right: 15%;
+        width: 70%;
+        height: 30%;
+        margin-top: 95px;
+        margin-bottom: 30px;
+    }
+    #desList {
+        margin-right: 20px;
+    }
+    .des {
+        font-size: 16px;
+    }
+    #routesText1, #routesText2, #routesText3, #routesText4, #routesText5, #routesForm, #hello, #yourRoutes {
+        padding-right: 20px;
+    }
+}

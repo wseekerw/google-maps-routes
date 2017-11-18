@@ -1,0 +1,67 @@
+
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<style>
+    .mainrowNaw {
+        background-color:#7fc8d1;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 71% 96%, 45% 54%, 0 54%);
+        clip-path: polygon(0 0, 100% 0, 100% 96%, 71% 96%, 45% 54%, 0 54%);
+        clip: rect(0 0, 100% 0, 100% 96%, 71% 96%, 45% 54%, 0 54%);
+
+        -webkit-box-shadow: 6px 42px 55px -26px rgba(0,0,0,0.75);
+        -moz-box-shadow: 6px 42px 55px -26px rgba(0,0,0,0.75);
+        box-shadow: 6px 42px 55px -26px rgba(0,0,0,0.75);
+
+        -webkit-clip-path: url("#clipping");
+         clip-path: url("#clipping");
+}
+</style>
+
+
+</head>
+<body>
+
+    <div back-img="[[navBackground]]" class="row mainrowNaw">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+              <p id="navTitle">GOOGLE MAPS ROUTING APP</p>
+          </div>
+          <div id="navContainer" class="col-lg-6 col-md-6 col-sm-6">
+              <div ng-hide="userLoggedIn" class="row rowNav">
+                  <div class="col-lg-2 col-md-2 col-sm-2">
+                      <button id="welcomeButton" ui-sref-active="active" class="navButton hvr-skew" ui-sref="welcome">Welcome</button>
+                  </div>
+              </div>
+              <div ng-show="userLoggedIn" class="row rowNav">
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-2 col-md-offset-2 col-sm-offset-2">
+                      <button id="routesButton" ui-sref-active="active" class="navButton hvr-skew" ui-sref="routes">Routes</button>
+                  </div>
+              </div>
+              <div ng-hide="userLoggedIn" class="row rowNav">
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
+                      <button id="registerButton" ui-sref-active="active" class="navButton hvr-skew" ui-sref="register">Register</button>
+                  </div>
+              </div>
+              <div ng-hide="userLoggedIn" class="row rowNav">
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-7 col-md-offset-7 col-sm-offset-7 rowNavbottom">
+                      <button id="loginButton" ui-sref-active="active" class="navButton hvr-skew" ui-sref="login">Login</button>
+                  </div>
+              </div>
+              <div ng-show="userLoggedIn" class="row rowNav">
+                  <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-8 col-md-offset-8 col-sm-offset-8 rowNavbottom">
+                      <button id="logoutButton" ui-sref-active="active" class="navButton hvr-skew" ui-sref="logout">Logout</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <svg width='0' height='0'>
+          <defs>
+           <clipPath id="clipping" clipPathUnits="objectBoundingBox">
+               <polygon points="0 0, 1 0, 1 0.96, 0.71 0.96, 0.45 0.54, 0 0.54" />
+           </clipPath>
+          </defs>
+      </svg>
+
+</body>
+</html>

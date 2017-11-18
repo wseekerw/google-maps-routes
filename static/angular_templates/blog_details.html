@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<head>
+    <title>detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style>
+        textarea {
+            /*resize: none;*/
+            width: 300px;
+            height: 100px;
+            /*border-radius: 5px;*/
+            border-color: black;
+            border-width: 1px;
+            font-family: "Times New Roman";
+
+            font-size: 17px;
+            color: black;
+        }
+
+        .dugme {
+            width: auto;
+            margin-top: 3px;
+        }
+
+        .dugme:hover {
+            animation-name: jello;
+            transform-origin: center;
+            background-color: #3a3a3a;
+            border-color: #3a3a3a;
+        }
+        .reply {
+            margin-left: 2px;
+            float: left;
+            font-size: 12px;
+            color:#0000ff;
+        }
+        blockquote {
+            border-width: 2px;
+        }
+        .blog-container {
+            margin-left: 10vw;
+            margin-right: 10vw;
+            box-shadow: 8px 8px 8px #888888;
+            margin-bottom: 45px;
+            margin-top: 80px;
+            border: none;
+            font-family: "Times New Roman";
+        }
+
+        .slika {
+            margin-top: 30px;
+            box-shadow: 0 0 5px #888888;
+        }
+        .naslov {
+            text-align: center;
+            font-family: "Times New Roman";
+            margin-top: 65px;
+            color: black;
+        }
+        .tekst {
+            white-space: pre-wrap;
+            margin-top: 120px;
+            font-size: 16px;
+            color: #1c1c1c;
+            font-family: "Times New Roman";
+
+        }
+
+        @media (min-width: 320px) and (max-width: 959px) {
+           .blog-container {
+               margin-top: 8px;
+           }
+       }
+
+       @media (min-width: 960px) and (max-width: 1101px) {
+           .blog-container {
+               margin-top: 120px;
+           }
+       }
+
+        @media (min-width: 320px) and (max-width: 479px) {
+           .blog-container {
+               margin-left: 1vw;
+               margin-right: 1vw;
+           }
+
+           textarea {
+               width: 220px;
+           }
+
+
+       }
+
+       @media (min-width: 480px) and (max-width: 767px) {
+           .blog-container {
+               margin-left: 1vw;
+               margin-right: 1vw;
+           }
+
+       }
+
+       @media (min-width: 1440px)  {
+           .blog-container {
+               margin-left: auto;
+               margin-right: auto;
+               width: 1440px;
+           }
+
+       }
+
+    </style>
+</head>
+
+<body>
+    <div style="border-color:black;" class="thumbnail blog-container">
+        <img style="display: none;" class="img-responsive slika" ng-src="[[ DCtrl.detail.image ]]" alt="">
+        <div class="caption">
+            <h1 class="naslov">[[ DCtrl.detail.title ]]</h1>
+            <p class="tekst">[[ DCtrl.detail.content ]]</p>
+            <hr style="border-color: #252526;">
+            </br>
+            <p>Objavljeno: <span style="font-weight: bold;">[[ DCtrl.detail.timestamp ]]</span></p>
+            <p>Od strane korisnika: <span style="font-weight: bold;">[[ DCtrl.detail.user.username ]]</span></p>
+
+
+            </br>
+
+            <p ng-hide="userDeleteLoggedIn"><a ng-click="DCtrl.deletePost()" class="btn btn-danger dugme animated" role="button">Obriši članak</a></p>
+            <p ng-show="userDeleteLoggedIn">Nemate prava da brišete ili menjate članak ako niste korisnik koji ga je postavio!</p>
+
+            <p ng-hide="userDeleteLoggedIn"><a ui-sref="blog_edit({id:DCtrl.detail.id})" class="btn btn-warning dugme animated">Izmeni članak</a></p>
+            <!--<p ng-show="userDeleteLoggedIn">You don't have permission to edit this post!!!</p>-->
+
+            </br>
+
+            <h4 ng-hide="userLoggedIn">Morate biti prijavljeni za slanje komentara!!</h4>
+            <div ng-show="userLoggedIn">
+                <h3>Da li bi ste želeli da komentarišete <span style="color:#0a5438; font-style: italic;">[[ DCtrl.username ]]</span> ?</h3>
+                <form enctype="multipart/form-data">
+                    <textarea ng-model="DCtrl.content" placeholder="Komentar"></textarea>
+                    <p ng-show="DCtrl.commentError" style="color: red; margin-bottom:-20px;">[[ DCtrl.commentError ]]</p>
+
+                    <br/>
+
+                    <input ng-click="DCtrl.postComment()" type="submit" class="btn btn-success animated dugme" value="Pošalji" />
+                </form>
+            </div>
+            </br>
+            <h3>Komentari:</h3>
+            <span ng-if="DCtrl.detail.comments.length == 0">Trenutno nema komentara.</span>
+            <div ng-repeat="komentar in DCtrl.detail.comments">
+                <blockquote style="border-color: #010000">
+                    <span style="font-size: 20px;">[[ komentar.content ]]</span><br>
+                    <small>od: <span style="font-weight: bold;">[[ komentar.user.username ]]</span></small>
+                    <small>vreme: [[ komentar.timestamp ]]</small>
+
+
+                    <a  ng-show="userLoggedIn" style="color:#0000ff;float: left;" href='' ng-click="replyHidden = !replyHidden">
+                        <p ng-hide="replyHidden" style="font-size: 12px;">Odgovori</p>
+                        <p ng-show="replyHidden" style="font-size: 12px;">Sakrij</p>
+                    </a>
+                    <span ng-show="DCtrl.username == komentar.user.username" class="reply">|</span>
+                    <a ng-show="DCtrl.username == komentar.user.username" ng-click="DCtrl.deleteComment(komentar.id)" class="reply" href="" >Obriši</a>
+                    <br/>
+
+
+
+                    <div ng-show="replyHidden">
+                        <form ng-submit="DCtrl.addCommentReply(reply, komentar)" name="myForm">
+                            <textarea required type="text" id="contentText" ng-model="reply.content"></textarea><br>
+                            <button ng-disabled="myForm.$invalid" type="submit" class="btn btn-success dugme">Pošalji</button><br/><br/>
+                        </form>
+
+                    </div>
+
+                    <blockquote style="border-color: #420000;" ng-repeat="komentar2 in komentar.comment_replies_on_comments">
+                        [[ komentar2.content ]]<br>
+                        <small>od: [[ komentar2.user.username ]]</small>
+                        <small>vreme: [[ komentar2.timestamp ]]</small>
+                        <a ng-show="DCtrl.username == komentar2.user.username" ng-click="DCtrl.deleteCommentReply(komentar2.id)" class="reply" href="" >Obriši</a>
+                    </blockquote>
+
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+

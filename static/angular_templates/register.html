@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+
+
+
+
+</style>
+
+
+</head>
+<div class="row">
+
+
+<div class="col-sm-6 col-md-6 col-lg-6">
+
+    <p id="registerText">Welcome to a registration page where you can register an account. Registration is simple and it doesn't
+    involve submitting an email address.</p>
+    <br/>
+    <p id="warningText">* All field are required<br/>* Username and password need to be at least 4 characters</p>
+    <form id="regForm" enctype="multipart/form-data" ng-submit="RgCtrl.doRegister()" name="myForm">
+
+        <p>Username:</p>
+        <input ng-minlength="4" class="form-control formular" required type="text"  ng-model="RgCtrl.user.username" placeholder="Username"/>
+        <div ng-show="RgCtrl.usernameError" ng-repeat="err1 in RgCtrl.usernameError">
+            <p class="error">[[ err1 ]]</p>
+        </div>
+        <br/>
+        <p>Password:</p>
+        <input ng-minlength="4" required class="form-control formular" ng-model="RgCtrl.user.password" type="password"  placeholder="Password"/>
+        <br/>
+        <p>Confirm Password:</p>
+        <input ng-minlength="4" required class="form-control formular" ng-model="RgCtrl.user.password2" type="password"  placeholder="Confirm Password"/>
+        <div class="error" ng-show="RgCtrl.passwordError" ng-repeat="err2 in RgCtrl.passwordError">
+            <p>[[ err2 ]]</p>
+        </div>
+        <br/>
+        <div style="color: green" ng-show="RgCtrl.registerMessage">
+            <p >[[RgCtrl.registerMessage]]</p>
+        </div>
+
+        <input ng-disabled="myForm.$invalid" type="submit" value="Register" class="btn btn-success" />
+    </form>
+
+
+
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <div ng-show="userRegistered" class="successReg">
+        <p class="successReg1">You have successfully registered an account with username: <br><br><span id="successUsername">[[ RgCtrl.regUsername ]]</span></p>
+        <br/>
+        <h4><a style="color: #560000;" ui-sref="login">Would you like to login?</a></h4>
+
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>

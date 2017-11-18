@@ -1,0 +1,40 @@
+
+<html>
+<head>
+
+    <style>
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+<div class="row">
+<div class="col-sm-12 col-lg-12 col-md-12">
+
+    <p id="loginText">Please submit your registered credentials to login into an account.</p>
+    <form id="logForm" ng-submit="LgCtrl.doLogin()" name="myForm">
+        <p>Username:</p>
+        <input required type="text" ng-model="LgCtrl.user.username" class="form-control formLogin" placeholder="Username"/>
+        <br/>
+        <p>Password:</p>
+        <input required type="password" ng-model="LgCtrl.user.password" class="form-control formLogin" placeholder="Password"/>
+        <br/>
+
+        <input ng-disabled="myForm.$invalid" type="submit" value="Login" class="btn btn-success" />
+        <div ng-show="LgCtrl.loginError" ng-repeat="error in LgCtrl.loginError">
+            <p class="logError">[[ error ]]</p>
+        </div>
+    </form>
+    <p id="loginText2">After a successful login you will be redirected to
+        <span style="display: block;">routes page where you can manage your google map routes.</span>
+    </p>
+    <img id="pointer" ng-src="[[pointer]]">
+
+</div>
+</div>
+</body>
+</html>

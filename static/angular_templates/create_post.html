@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<head>
+
+    <style>
+        input, textarea {
+            font-family: "Times New Roman";
+            font-size: 17px;
+            color: black;
+        }
+
+        #naslovStranice {
+            text-align: center;
+            font-family: "Times New Roman";
+            margin-bottom: 50px;
+        }
+        .btn-danger, .img-responsive {
+            margin-top: 4px;
+        }
+
+        .naslov {
+            color: black;
+            width: 40vw;
+            font-size: 17px;
+        }
+
+        .containerZaFormular {
+            margin-left: 12vw;
+            margin-right: 12vw;
+            width: auto;
+            float: none;
+            margin-top: 90px;
+
+        }
+
+        .glavniRow {
+            width: 100vw;
+            font-family: "Times New Roman";
+        }
+        .dugme {
+
+        }
+        .dugme:hover {
+            background-color: #3a3a3a;
+            border-color: #3a3a3a;
+        }
+
+        textarea {
+            /*resize: none;*/
+            margin-top:5px;
+            height: 350px;
+            width: 80vw;
+        }
+        .inputSlika {
+            color: red;
+        }
+        .stopTekst {
+            text-align: center;
+            font-size: 30px;
+            margin-top: 80px;
+            margin-bottom: 50px;
+        }
+        .link {
+            color: #560000;
+        }
+        .error {
+            color: red;
+        }
+
+
+        @media (min-width: 320px) and (max-width: 479px) {
+            .containerZaFormular {
+                margin-left: 1vw;
+                margin-right: 1vw;
+                width: auto;
+
+            }
+
+            textarea, input {
+                width: 98vw;
+            }
+            .dugme {
+                margin-right: 1vw;
+                width: auto;
+            }
+            .stopTekst {
+                font-size: 22px;
+                margin-top: 20px;
+                margin-bottom: 30px;
+                text-align: center;
+                padding-left: 3vw;
+            }
+            .naslov {
+                width: 60vw;
+            }
+
+        }
+
+         @media (min-width: 320px) and (max-width: 959px) {
+             .containerZaFormular {
+                 margin-top: 3px;
+             }
+         }
+
+         @media (min-width: 480px) and (max-width: 767px) {
+
+
+            .stopTekst {
+                font-size: 22px;
+                margin-top: 50px;
+                margin-bottom: 40px;
+                text-align: center;
+                padding-left: 3vw;
+            }
+            .naslov {
+                width: 55vw;
+            }
+
+        }
+        @media (min-width: 1440px)  {
+            .containerZaFormular {
+                margin-left: auto;
+                margin-right: auto;
+                width: 1440px;
+            }
+
+
+            .dugme {
+                margin-right: 5px;
+                width: auto;
+            }
+            textarea {
+                /*resize: none;*/
+                margin-top:5px;
+                width: 1000px;
+            }
+            .naslov {
+                width: 500px;
+            }
+        }
+         @media (min-width: 480px) and (max-width: 767px) {
+            .containerZaFormular {
+                margin-left: 1vw;
+                margin-right: 1vw;
+                width: auto;
+            }
+
+            textarea, input {
+                width: 98vw;
+            }
+            .dugme {
+                margin-right: 1vw;
+                width: auto;
+            }
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="row glavniRow" style="margin-top: 50px; margin-bottom:50px;">
+<div class="col-lg-12 col-md-12 col-sm-12 containerZaFormular">
+    <h1 id="naslovStranice">Novi članak</h1>
+    <p class="stopTekst">Na ovoj stranici možete napisati novi članak o nekoj umetničkoj temi ili problemu.</p>
+
+    <div class="row" ng-hide="userLoggedIn">
+        <p class="stopTekst">Prilikom unošenja novog teksta morate biti registrovani i prijavljeni korisnik!</p>
+        <div style="margin-top: 85px;" class="col-lg-12 col-md-12 col-sm-12">
+            <p class="stopTekst">Da li biste želeli da se <a class="link" ui-sref="login">prijavite</a> ili <a class="link" ui-sref="register">registrujete</a> na sajt?</p>
+        </div>
+    </div>
+    <form ng-show="userLoggedIn" enctype="multipart/form-data" name="myForm">
+        <p style="color: black;">* Naslov i sadrzaj su obavezni<br>* Naslov ne sme biti duži od 40 slova
+            <br>* Neprikladni i nepristojni sadržaji biće obrisani</p>
+
+
+        <input required type="text" ng-model="PCCtrl.naslov" class="form-control naslov" placeholder="Naslov"/>
+        <div ng-show="PCCtrl.titleError1">
+            <p class="error">[[ PCCtrl.titleError1 ]]</p>
+        </div>
+
+        <textarea required ng-model="PCCtrl.sadrzaj" placeholder="Sadržaj" class="sadrzaj"></textarea>
+
+        <input style="display: none;" class="inputSlika" ngf-select ng-model="picFile" ngf-max-size="2MB" type="file" name="file" accept="image/*" placeholder="Izaberi sliku"/>
+        <img class="img-responsive" ng-show="myForm.file.$valid" ngf-thumbnail="picFile">
+        <i class="inputSlika" ng-show="myForm.file.$error.maxSize">Fajl je preveliki: max 2MB</i>
+        <button class="btn btn-danger" ng-click="picFile = null" ng-show="picFile">Ukloni</button>
+        <br/>
+
+        <input ng-disabled="myForm.$invalid" ng-click="PCCtrl.uploadPic(picFile)" style="margin-top:5px;" type="submit" value="Objavi članak"  class="btn btn-success dugme" />
+    </form>
+</div>
+</div>
+
+
+</body>

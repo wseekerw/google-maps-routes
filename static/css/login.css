@@ -1,0 +1,69 @@
+#loginText {
+    margin-left: 30px;
+    margin-top: -30px;
+    font-size: 18px;
+}
+
+#logForm {
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    margin-top: 100px;
+}
+
+#loginText2 {
+    font-size: 18px;
+    margin-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+}
+
+.logError {
+    color: red;
+    margin-top: 13px;
+}
+
+@media (min-width: 1440px) {
+    #pointer {
+        margin-left: 498px;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+    #pointer {
+        margin-left: 433px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    #pointer {
+        margin-left: 302px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #pointer {
+        margin-left: 180px;
+    }
+    #loginText {
+        margin-top: 45px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #pointer {
+        margin-left: 5%;
+        width: 90%;
+        margin-bottom: 60px;
+    }
+    #loginText {
+        margin-top: 55px;
+    }
+    #logForm {
+        margin-left: 15%;
+        margin-right: 15%;
+        width: 70%;
+        margin-top: 100px;
+    }
+}

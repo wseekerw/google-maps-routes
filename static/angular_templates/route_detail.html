@@ -1,0 +1,24 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+</head>
+<body>
+<div class="row">
+  <p id="routeDetailText1">Here you can see the details of your selected route.</p>
+  <br>
+  <button ui-sref="routes" class="btn btn-warning">Back to routes</button>
+  <hr class="hr">
+  <h3 id="routeDetailTitle">[[ routeDetailObject.address1 ]] <span id="Dash">-</span> [[ routeDetailObject.address2 ]]</h3>
+  <p ng-show="routeDetailError" id="routeError">[[ routeDetailError ]]</p>
+  <div id="map"></div>
+  <p id="distance">Distance:
+    <span class="span1" ng-if="[[ travelTimeError ]]">[[ travelTimeError ]]</span>
+    <span class="span2">[[ distanceKilometers ]]</span>
+  </p>
+  <p id="travelTime">Travel time:
+    <span class="span1" ng-if="[[ durationError ]]">[[ durationError ]]</span>
+    <span class="span2">[[ duration ]]</span>
+  </p>
+  <hr class="hr">
+</div>
+</body>
+

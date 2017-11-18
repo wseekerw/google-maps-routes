@@ -1,0 +1,128 @@
+#map {
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 400px;
+    margin-top: 38px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #879b3e;
+
+}
+
+#routeDetailText1 {
+    font-size: 21px;
+    margin-left: 28px;
+}
+
+#routeError {
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: center;
+    margin-top: 28px;
+    font-size: 14px;
+    color: #e03a3a;
+}
+
+#routeDetailTitle {
+    text-align: center;
+    margin-top: 55px;
+    font-size: 35px;
+    font-family: 'Slabo', serif;
+}
+
+#Dash {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#travelTime, #distance {
+    margin-left: 15%;
+}
+
+#distance {
+    margin-top: 40px;
+    font-size: 26px;
+}
+
+.span1 {
+    color: #a34508;
+}
+
+.span2 {
+    color:#bf4722 !important;
+    margin-left: 10px;
+}
+
+#travelTime {
+    margin-top: 40px;
+    font-size: 26px;
+    margin-bottom: 60px;
+}
+
+.hr {
+    margin-left: 15%;
+    margin-right: 15%;
+    border-color: #969393;
+    margin-bottom: 50px;
+}
+
+.btn-warning {
+    margin-left: 15%;
+    -webkit-box-shadow: -1px 13px 22px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 13px 22px -5px rgba(0,0,0,0.75);
+    box-shadow: -1px 13px 22px -5px rgba(0,0,0,0.75);
+    margin-bottom: 25px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    #routeDetailText1 {
+        font-size: 19px;
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+
+    #routeDetailText1 {
+        margin-top: 80px;
+        margin-left: 0;
+        text-align: center;
+        padding-left: 25px;
+        padding-right: 25px;
+
+    }
+
+    #routeDetailTitle {
+        padding-right: 25px;
+        padding-left: 25px;
+        font-size: 28px;
+    }
+    #distance {
+        margin-top: 25px;
+        font-size: 20px;
+    }
+    #travelTime {
+        margin-top: 25px;
+        font-size: 20px;
+
+    }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+    #map {
+        margin-left: 9%;
+        margin-right: 9%;
+        height: 380px;
+        margin-top: 38px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    #map {
+        margin-left: 12%;
+        margin-right: 12%;
+
+    }
+
+}

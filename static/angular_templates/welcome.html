@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="row" >
+        <div class="col-lg-6 col-md-6 col-sm-6 welcomeDiv">
+            <p id="welcomeTitle">Welcome visitor</p>
+            <p id="welcomeText1">This is a website which calculates distance between two preselected locations
+             on the world map. By entering names of two cities you can create your own routes which you can, then
+             view in detail or delete them if you don't need them any longer.</p>
+            <p id="welcomeText2">It is important to note that, in order to properly use this application, you must register and login
+             into account(no email required).</p>
+            <p id="welcomeText3"><a ui-sref="register">Register </a>& <a ui-sref="login">Login</a></p>
+            <p id="welcomeText4">That way we can save your allready created routes.</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <img id="smallMap" ng-src="[[smallMap]]">
+        </div>
+
+    </div>
+</body>
+</html>
