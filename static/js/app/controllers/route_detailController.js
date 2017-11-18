@@ -40,7 +40,7 @@ app.controller("detailController",function($scope, $stateParams, $http, $cookies
         var promise = $http.get(proxyUrl + requestUrl);
 
         promise.then(function(response){
-            console.log(response);
+            //console.log(response);
             if(response.data.rows[0].elements[0].status==="ZERO_RESULTS") {
 
                console.log('Something went wrong')
