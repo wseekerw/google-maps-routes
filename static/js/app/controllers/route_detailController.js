@@ -21,7 +21,7 @@ app.controller("detailController",function($scope, $stateParams, $http, $cookies
 
     requestDetail.then(function(response){
         $scope.routeDetailObject = response.data
-        console.log($scope.routeDetailObject.address1)
+        //console.log($scope.routeDetailObject.address1)
 
         /* The whole google map Api javascript code has been put into
            get response for detail map object because of the accessability of
@@ -37,10 +37,10 @@ app.controller("detailController",function($scope, $stateParams, $http, $cookies
         var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
         // http request or call for distance and travel time
-        var promise = $http.jsonp(/*proxyUrl + */requestUrl);
+        var promise = $http.get(proxyUrl + requestUrl);
 
         promise.then(function(response){
-            //console.log(response);
+            console.log(response);
             if(response.data.rows[0].elements[0].status==="ZERO_RESULTS") {
 
                console.log('Something went wrong')
@@ -55,11 +55,14 @@ app.controller("detailController",function($scope, $stateParams, $http, $cookies
                 $scope.distanceKilometers = response.data.rows[0].elements[0].distance.text;
                 $scope.duration = response.data.rows[0].elements[0].duration.text;
 
+
+
             }
        });
 
        promise.catch(function(err){
-           //console.log(err);
+           console.log(err);
+
        })
 
        // variable setting for Directions service

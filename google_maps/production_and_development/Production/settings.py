@@ -142,7 +142,12 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static-root-files")
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+"""
+Problem sa staticfile storage-om istraziti
+"""
 
 #MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
 
