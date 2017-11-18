@@ -23,9 +23,8 @@ from map_objects.api import urls as map_object_urls
 from accounts.user_api import urls as user_api_urls
 
 urlpatterns = [
-    url(r'^$', home, name='home'),
     url(r'^admin/', admin.site.urls),
-    #url(r'^$', home, name='home'),
+    url(r'^$', home, name='home'),
 
     # api
     url(r'^api/users/', include(user_api_urls, namespace='users_api')),
